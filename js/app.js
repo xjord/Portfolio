@@ -9,15 +9,16 @@ const data = [
 	['$ jordanwood/portfolio/email'],
 	['$ jordanwood/portfolio/linkedin'],
 	['$ jordanwood/portfolio/cv'],
-	['$ jordanwood/portfolio/repo']
+	['$ jordanwood/portfolio/repo'],
+	['$ jordanwood/portfolio']
 ]
-
-const directoryData = [
-	['/jordanwood/portfolio','$ Skills Qualifications About Projects Contact details'],
-	['/jordanwood/portfolio/email', '$ jordanwood1993@yahoo.co.uk'],
-	['/jordanwood/portfolio/linkedin', '$ linkedin.com/in/jordanwood1993'],
-	['/jordanwood/portfolio/cv', '$ http://www.jordanwood.uk/cv.pdf'],
-	['/jordanwood/portfolio/repo', '$ github.com/xjord?tab=repositories"']
+// PWD data
+const directories = [
+	['/jordanwood/portfolio','Skills Qualifications About Projects Contact details'],
+	['/jordanwood/portfolio/email', 'jordanwood1993@yahoo.co.uk'],
+	['/jordanwood/portfolio/linkedin', 'linkedin.com/in/jordanwood1993'],
+	['/jordanwood/portfolio/cv', 'http://www.jordanwood.uk/cv.pdf'],
+	['/jordanwood/portfolio/repo', 'github.com/xjord?tab=repositories']
 ]
 
 // Present working directory
@@ -36,7 +37,7 @@ if ($(window).width() > 667) {
 	setTimeout(function () {
 		$(firstPrompt).show(); // Show after time delay
 		$('input.prompt').focus(); // Focus on input box
-	}, 9500); // 9.5 seconds
+	}, 5); // 9.5 seconds
 }
 else {
 	setTimeout(function () {
@@ -80,22 +81,27 @@ function checkPrompt(e){
 			var inputValue = $(e.target).val().toLowerCase();
 
 		if(inputValue === "0"){
+			pwd = "/jordanwood/portfolio";
 			appendResult(data[0]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "1"){
+			pwd = "/jordanwood/portfolio";
 			appendResult(data[1]);
 			addArray(inputValue);
 		}
 		else if(inputValue ==="2"){
+			pwd = "/jordanwood/portfolio";
 			appendResult(data[2]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "3"){
+			pwd = "/jordanwood/portfolio";
 			appendResult(data[3]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "4"){
+			pwd = "/jordanwood/portfolio";
 			appendResult(data[4]);
 			addArray(inputValue);
 		}
@@ -108,6 +114,7 @@ function checkPrompt(e){
 			open("mailto:jordanwood1993@yahoo.co.uk");
 			appendResult(data[6]);
 			addArray(inputValue);
+			pwd = "/jordanwood/portfolio/email";
 		}
 		else if(inputValue === "cd linkedin"){
 			pwd = '/jordanwood/portfolio/linkedin';
@@ -120,11 +127,17 @@ function checkPrompt(e){
 			window.open("cv.pdf");
 			appendResult(data[8]);
 			addArray(inputValue);
+
 			}
 		else if(inputValue === "cd repo"){
-			pwd = '/jordanwood/portfolio/repo'
+			pwd = '/jordanwood/portfolio/repo';
 			window.open("https://github.com/xjord?tab=repositories");
 			appendResult(data[9]);
+			addArray(inputValue);
+		}
+		else if(inputValue === "cd portfolio"){
+			pwd = '/jordanwood/portfolio'
+			appendResult(data[10]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "clear()"){
@@ -132,13 +145,26 @@ function checkPrompt(e){
 			addArray(inputValue);
 		}
 		else if(inputValue === "pwd"){
-			appendResult('<p class="result">' + pwd + '</p>');
+			appendResult('$ ' + pwd);
 			addArray(inputValue);
 		}
-		// else if(inputValue === "ls"){
-		// 	appendResult();
-		// 	addArray(inputValue);
-		// }
+		else if(inputValue === "cd .."){
+			if(pwd !== "/jordanwood/portfolio" && pwd !== "/jordanwood"){
+				pwd = "/jordanwood/portfolio"
+			} else {
+				pwd = "/jordanwood"
+			}
+			addArray(inputValue);
+		}
+		else if(inputValue === "ls"){
+				// Loop to check pwd against directories in array
+				for(k = 0; k < directories.length; k++){
+					// If directory is array return related data
+					if(directories[k][0] === pwd){
+						appendResult(directories[k][1])
+					}
+				}
+		}
 		else {
 			appendResult('<p class="result not-found">' + inputValue + ': command not found. Enter 0 for skills, 1 for qualifications, 2 for about, 3 for projects, 4 for contact details or enter \'--help\' for some tips.</p>');
 			addArray(inputValue);
@@ -152,7 +178,6 @@ function checkPrompt(e){
 
 // Listen for keydown events on elements with the class prompt within css-typing container
 $(".css-typing").on("keydown", ".prompt", checkPrompt);
-
 
 // Cycle through previous commands
 function prevComands(e){
