@@ -212,12 +212,12 @@ span.arrow{
   .icon{
     position: absolute;
     right: 0;
-    margin: 10px 30px 10px 10px;
+    margin: 0px 35px 10px 10px;
     text-decoration: none;
   }
   .folder{
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 60px;
   }
   .folder-name{
     color: white;
@@ -309,9 +309,8 @@ span.arrow{
   }
 } */
 /* Hide desktop icons when not enough room */
-@media only screen and (max-width: 985px){
-  .projects,
-  .linkedin{
+@media only screen and (max-width: 947px){
+  .icon{
     display: none;
   }
 }
