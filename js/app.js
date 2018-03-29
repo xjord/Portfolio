@@ -3,22 +3,27 @@ const data = [
 	['Skills: HTML, CSS, JavaScript, jQuery, and PHP.'],
 	['Qualifications: Bachelor\'s Degree, Business Information Systems [2.1], Cardiff University. Extended Diploma in IT [Distinction*], Coleg Gwent.'],
 	['About: 24 years old, Cardiff University Graduate based in South Wales, UK. Highly motivated and driven with a strong interest in web development. Looking to develop a career in front end development.'],
-	['Recent projects: visit github.com/xjord?tab=repositories or enter \'cd repo\''],
+	['Recent projects: visit github.com/xjord?tab=repositories or enter \'cd projects\''],
 	['Contact: LinkedIn - linkedin.com/in/jordanwood1993. Email - jordanwood1993@yahoo.co.uk. Whether you think I might be right for your project, a role in your company or even if you just fancy a chat, I\'d love to hear from you.'],
 	['Enter \'cd\' followed by \'email\', \'linkedin\' or \'cv\' to view the specified. E.g. \'cd linkedin\'.'],
 	['$ jordanwood/portfolio/email'],
 	['$ jordanwood/portfolio/linkedin'],
 	['$ jordanwood/portfolio/cv'],
-	['$ jordanwood/portfolio/repo'],
+	['$ jordanwood/portfolio/projects'],
 	['$ jordanwood/portfolio']
 ]
-// PWD data
+// pwd data
 const directories = [
-	['/jordanwood/portfolio','Skills Qualifications About Projects Contact details'],
-	['/jordanwood/portfolio/email', 'jordanwood1993@yahoo.co.uk'],
-	['/jordanwood/portfolio/linkedin', 'linkedin.com/in/jordanwood1993'],
+	['/jordanwood/portfolio','skills qualifications about projects contact', 'skills--0<br>qualifications--1<br>about--2<br>projects--3<br>contact--4'],
+	['/jordanwood/portfolio/skills', 'html css javascript jquery php'],
+	['/jordanwood/portfolio/qualifications', 'degree diploma', 'degree--2.1 <br> diploma--distinction*'],
+	['/jordanwood/portfolio/about', '24 developer wales'],
+	['/jordanwood/portfolio/projects', 'repo', 'repo--github.com/xjord?tab=repositories'],
+	['/jordanwood/portfolio/projects/repo', 'github.com/xjord?tab=repositories'],
+	['/jordanwood/portfolio/contact', 'email linkedin', 'email--jordanwood1993@yahoo.co.uk <br> linkedin--linkedin.com/in/jordanwood1993'],
+	['/jordanwood/portfolio/contact/email', 'jordanwood1993@yahoo.co.uk'],
+	['/jordanwood/portfolio/contact/linkedin', 'linkedin.com/in/jordanwood1993'],
 	['/jordanwood/portfolio/cv', 'http://www.jordanwood.uk/cv.pdf'],
-	['/jordanwood/portfolio/repo', 'github.com/xjord?tab=repositories'],
 	['/jordanwood', 'portfolio']
 ]
 
@@ -79,30 +84,30 @@ function appendResult(result){
 function checkPrompt(e){
 
 		if(e.keyCode === 13){
-			var inputValue = $(e.target).val().toLowerCase();
+			var inputValue = $(e.target).val().toLowerCase().trim();
 
 		if(inputValue === "0"){
-			pwd = "/jordanwood/portfolio";
+			pwd = "/jordanwood/portfolio/skills";
 			appendResult(data[0]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "1"){
-			pwd = "/jordanwood/portfolio";
+			pwd = "/jordanwood/portfolio/qualifications";
 			appendResult(data[1]);
 			addArray(inputValue);
 		}
 		else if(inputValue ==="2"){
-			pwd = "/jordanwood/portfolio";
+			pwd = "/jordanwood/portfolio/about";
 			appendResult(data[2]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "3"){
-			pwd = "/jordanwood/portfolio";
+			pwd = "/jordanwood/portfolio/projects";
 			appendResult(data[3]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "4"){
-			pwd = "/jordanwood/portfolio";
+			pwd = "/jordanwood/portfolio/contact";
 			appendResult(data[4]);
 			addArray(inputValue);
 		}
@@ -128,10 +133,9 @@ function checkPrompt(e){
 			window.open("cv.pdf");
 			appendResult(data[8]);
 			addArray(inputValue);
-
-			}
-		else if(inputValue === "cd repo"){
-			pwd = '/jordanwood/portfolio/repo';
+		}
+		else if(inputValue === "cd projects"){
+			pwd = '/jordanwood/portfolio/projects';
 			window.open("https://github.com/xjord?tab=repositories");
 			appendResult(data[9]);
 			addArray(inputValue);
@@ -165,6 +169,16 @@ function checkPrompt(e){
 						appendResult(directories[k][1])
 					}
 				}
+				addArray(inputValue);
+		}
+		else if(inputValue ==="ls -l"){
+			for(k = 0; k < directories.length; k++){
+				if(directories[k][0] === pwd){
+					// Return -l data (Third value in array)
+					appendResult(directories[k][2])
+				}
+			}
+			addArray(inputValue);
 		}
 		else {
 			appendResult('<p class="result not-found">' + inputValue + ': command not found. Enter 0 for skills, 1 for qualifications, 2 for about, 3 for projects, 4 for contact details or enter \'--help\' for some tips.</p>');
