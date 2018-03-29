@@ -18,7 +18,8 @@ const directories = [
 	['/jordanwood/portfolio/email', 'jordanwood1993@yahoo.co.uk'],
 	['/jordanwood/portfolio/linkedin', 'linkedin.com/in/jordanwood1993'],
 	['/jordanwood/portfolio/cv', 'http://www.jordanwood.uk/cv.pdf'],
-	['/jordanwood/portfolio/repo', 'github.com/xjord?tab=repositories']
+	['/jordanwood/portfolio/repo', 'github.com/xjord?tab=repositories'],
+	['/jordanwood', 'portfolio']
 ]
 
 // Present working directory
