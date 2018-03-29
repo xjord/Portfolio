@@ -1,0 +1,345 @@
+body {
+  background: url("stars.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 10px;
+}
+.fakeButtons {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 6px;
+  left: 6px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+}
+.fakeMinimize {
+  left: 11px;
+  background-color: #ffc100;
+  border-color: #9d802c;
+}
+.fakeZoom {
+  left: 16px;
+  background-color: #00d742;
+  border-color: #049931;
+}
+.fakeMenu {
+  box-sizing: border-box;
+  height: 25px;
+  background-color: #bbb;
+  margin: 0 auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.fakeScreen {
+  background-color: #151515;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 1px 11px 0 11px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+span.arrow{
+  color: white;
+  font-family: monospace;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+#info-line{
+ position: relative;
+ text-align: left;
+ font-size: 1.25em;
+ font-family: monospace;
+ white-space: normal;
+ overflow: hidden;
+ color: white;
+}
+.typing {
+  border-right: .15em solid white;
+  font-family: monospace;
+  font-size: 1.25em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.line1 {
+  width: 250px;
+  -webkit-animation: type 2s steps(40, end); /* Type of animation and steps of animation tranistion */
+  animation: type 2s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  color: white;
+}
+.prompt{
+  font-size: 1.25em;
+  font-family: monospace;
+  color: white;
+  background-color: #151515;
+  border: 0;
+  outline: none;
+}
+.result{
+  font-size: 1.25em;
+  font-family: monospace;
+  color: #9CD9F0;
+}
+.not-found{
+  color: #E09690;
+}
+
+/* Typing animation */
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid white;
+  }
+  100% {
+    border: none;
+  }
+}
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid white;
+  }
+  100% {
+    border: none;
+  }
+}
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid white;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid white;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+/* prompt cursor blink */
+@keyframes blink-animation {
+ to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  50% {
+    visibility: hidden;
+  }
+}
+
+/* Media Query CSS */
+/* Desktop */
+@media only screen and (min-width: 668px){
+  .contact {
+      display: inline-block;
+      padding: 0 25px;
+      height: 50px;
+      font-size: 16px;
+      line-height: 50px;
+      border-radius: 25px;
+      background-color: #bbb;
+      filter: drop-shadow(0px 5px 4px black);
+      text-decoration: none;
+      font-family: monospace;
+      color: rgba(0,0,0,0.6);
+  }
+  .contact img {
+      float: left;
+      margin: 4px 10px 4px -25px;
+      padding-left: 4px;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .terminal{
+    	margin-top: 2%;
+  }
+  .fakeScreen{
+    width: 728px;
+    height: 457px;
+  }
+  .fakeMenu{
+    width: 728px;
+  }
+  .line1{
+    width: 250px;
+  }
+  .line2 {
+    width: 663px;
+    opacity: 0;
+    -webkit-animation: type2 3s steps(40, end);
+    animation: type2 3s steps(40, end);
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color: #CDEE69;
+  }
+  .line3 {
+    width: 371px;
+    opacity: 0;
+    -webkit-animation: type2 3s steps(40, end);
+    animation: type2 3s steps(40, end);
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color: #CDEE69;
+    margin-top: -16px;
+  }
+  .line4 {
+    width: 623px;
+    opacity: 0;
+    -webkit-animation: type2 1s steps(1, end);
+    animation: type2 1s steps(1, end);
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color: #E09690;
+    border: 0 !important;
+  }
+  .line5 {
+    width: 686px;
+    opacity: 0;
+    -webkit-animation: type3 1s steps(1, end), blink .5s step-end infinite alternate;
+    animation: type3 1s steps(1, end), blink .5s step-end infinite alternate;
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color: #E09690;
+    border: 0 !important;
+    margin-top: -16px;
+  }
+  .prompt{
+    width: 642px;
+  }
+  .result{
+    width: 675px;
+  }
+  .paragraphs{
+    display: none;
+  }
+}
+/* Laptop */
+/* @media only screen and (min-width: 668px) and (max-width: 1300){
+  .zoom{
+    transform: scale(0.9);
+    transform-origin: 0 0;
+  }
+} */
+/* Mobile */
+@media only screen and (max-width: 667px){
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  .contact{
+    display: none;
+  }
+  .terminal{
+    padding: 15px;
+    margin: 0;
+  }
+  .fakeMenu{
+    width: 100%;
+  }
+  .fakeScreen{
+    width: 100%;
+    height: 100%;
+  }
+  .prompt{
+    width: auto;
+  }
+  .result{
+    width: auto;
+    word-wrap: break-word;
+  }
+  .line2,
+  .line3,
+  .line4,
+  .line5{
+    display:none;
+  }
+  .para1{
+    width: auto;
+    font-family: monospace;
+    font-size: 1.25em;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #CDEE69;
+  }
+  .para2{
+    width: auto;
+    font-family: monospace;
+    font-size: 1.25em;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #E09690;
+    border: 0 !important;
+  }
+}
+
+/* @media only screen and (max-width: 298px){
+  input.prompt{
+    width: 100px;
+  } */
