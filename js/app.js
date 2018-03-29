@@ -37,7 +37,7 @@ if ($(window).width() > 667) {
 	setTimeout(function () {
 		$(firstPrompt).show(); // Show after time delay
 		$('input.prompt').focus(); // Focus on input box
-	}, 5); // 9.5 seconds
+	}, 9500); // 9.5 seconds
 }
 else {
 	setTimeout(function () {
