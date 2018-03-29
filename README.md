@@ -5,8 +5,10 @@ Terminal emulator project to act as website portfolio.
 Working commands include:
 
 - pwd
-- clear()
 - cd 
+- cd ..
+- ls
+- clear() 
 - --help
 - 0    	(Skills)
 - 1 	(Qualifications)
