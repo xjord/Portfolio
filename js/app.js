@@ -38,6 +38,7 @@ const paragraphs = $('.paragraphs')
 $(firstPrompt).hide(); // Hide first prompt
 $(paragraphs).hide();
 
+
 // Check window size to detemine delay
 if ($(window).width() > 667) {
 	setTimeout(function () {
@@ -46,6 +47,7 @@ if ($(window).width() > 667) {
 	}, 9500); // 9.5 seconds
 }
 else {
+	$('.folder').hide();
 	setTimeout(function () {
 	 $(firstPrompt).show();
 	 $(paragraphs).show();

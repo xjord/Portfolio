@@ -1,5 +1,5 @@
 body {
-  background: url("stars.jpg") no-repeat center center fixed;
+  background: url("images/stars.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -188,26 +188,47 @@ span.arrow{
 /* Desktop */
 @media only screen and (min-width: 668px){
   .contact {
-      display: inline-block;
-      padding: 0 25px;
-      height: 50px;
-      font-size: 16px;
-      line-height: 50px;
-      border-radius: 25px;
-      background-color: #bbb;
-      filter: drop-shadow(0px 5px 4px black);
-      text-decoration: none;
-      font-family: monospace;
-      color: rgba(0,0,0,0.6);
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #bbb;
+    filter: drop-shadow(0px 5px 4px black);
+    text-decoration: none;
+    font-family: monospace;
+    color: rgba(0,0,0,0.6);
   }
   .contact img {
-      float: left;
-      margin: 4px 10px 4px -25px;
-      padding-left: 4px;
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    margin: 4px 10px 4px -25px;
+    padding-left: 4px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .icon{
+    position: absolute;
+    right: 0;
+    margin: 10px 30px 10px 10px;
+    text-decoration: none;
+  }
+  .folder{
+    width: 80px;
+    height: 80px;
+  }
+  .folder-name{
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .linkedin{
+    padding-top: 115px;
   }
   .terminal{
     	margin-top: 2%;
@@ -287,6 +308,13 @@ span.arrow{
     transform-origin: 0 0;
   }
 } */
+/* Hide desktop icons when not enough room */
+@media only screen and (max-width: 985px){
+  .projects,
+  .linkedin{
+    display: none;
+  }
+}
 /* Mobile */
 @media only screen and (max-width: 667px){
   body{
@@ -338,8 +366,3 @@ span.arrow{
     border: 0 !important;
   }
 }
-
-/* @media only screen and (max-width: 298px){
-  input.prompt{
-    width: 100px;
-  } */
