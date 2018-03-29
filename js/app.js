@@ -5,10 +5,9 @@ const data = [
 	['About: 24 years old, Cardiff University Graduate based in South Wales, UK. Highly motivated and driven with a strong interest in web development. Looking to develop a career in front end development.'],
 	['Recent projects: visit github.com/xjord?tab=repositories or enter \'cd projects\''],
 	['Contact: LinkedIn - linkedin.com/in/jordanwood1993. Email - jordanwood1993@yahoo.co.uk. Whether you think I might be right for your project, a role in your company or even if you just fancy a chat, I\'d love to hear from you.'],
-	['Enter \'cd\' followed by \'email\', \'linkedin\' or \'cv\' to view the specified. E.g. \'cd linkedin\'.'],
+	['Enter \'cd\' followed by \'email\', \'linkedin\' or \'projects\' to view the specified. E.g. \'cd linkedin\'.'],
 	['$ jordanwood/portfolio/email'],
 	['$ jordanwood/portfolio/linkedin'],
-	['$ jordanwood/portfolio/cv'],
 	['$ jordanwood/portfolio/projects'],
 	['$ jordanwood/portfolio']
 ]
@@ -23,7 +22,6 @@ const directories = [
 	['/jordanwood/portfolio/contact', 'email linkedin', 'email--jordanwood1993@yahoo.co.uk <br> linkedin--linkedin.com/in/jordanwood1993'],
 	['/jordanwood/portfolio/contact/email', 'jordanwood1993@yahoo.co.uk'],
 	['/jordanwood/portfolio/contact/linkedin', 'linkedin.com/in/jordanwood1993'],
-	['/jordanwood/portfolio/cv', 'http://www.jordanwood.uk/cv.pdf'],
 	['/jordanwood', 'portfolio']
 ]
 
@@ -130,21 +128,15 @@ function checkPrompt(e){
 			appendResult(data[7]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "cd cv"){
-			pwd = '/jordanwood/portfolio/cv';
-			window.open("cv.pdf");
-			appendResult(data[8]);
-			addArray(inputValue);
-		}
 		else if(inputValue === "cd projects"){
 			pwd = '/jordanwood/portfolio/projects';
 			window.open("https://github.com/xjord?tab=repositories");
-			appendResult(data[9]);
+			appendResult(data[8]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "cd portfolio"){
 			pwd = '/jordanwood/portfolio'
-			appendResult(data[10]);
+			appendResult(data[9]);
 			addArray(inputValue);
 		}
 		else if(inputValue === "clear()"){
