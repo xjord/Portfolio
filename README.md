@@ -8,6 +8,7 @@ Working commands include:
 - cd 
 - cd ..
 - ls
+- ls -l
 - clear() 
 - --help
 - 0    	(Skills)
