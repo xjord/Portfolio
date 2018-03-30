@@ -200,7 +200,7 @@ span.arrow{
     font-family: monospace;
     color: rgba(0,0,0,0.6);
   }
-  .contact img {
+  .contact img{
     float: left;
     margin: 4px 10px 4px -21px;
     height: 40px;
@@ -242,53 +242,21 @@ span.arrow{
   .line1{
     width: 250px;
   }
-  .line2 {
-    width: 663px;
-    opacity: 0;
-    -webkit-animation: type2 3s steps(40, end);
-    animation: type2 3s steps(40, end);
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+  .para1{
+    width: auto;
+    font-family: monospace;
+    font-size: 1.25em;
+    overflow: hidden;
+    word-wrap: break-word;
     color: #CDEE69;
   }
-  .line3 {
-    width: 371px;
-    opacity: 0;
-    -webkit-animation: type2 3s steps(40, end);
-    animation: type2 3s steps(40, end);
-    -webkit-animation-delay: 5s;
-    animation-delay: 5s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    color: #CDEE69;
-    margin-top: -16px;
-  }
-  .line4 {
-    width: 623px;
-    opacity: 0;
-    -webkit-animation: type2 1s steps(1, end);
-    animation: type2 1s steps(1, end);
-    -webkit-animation-delay: 8s;
-    animation-delay: 8s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+  .para2{
+    width: auto;
+    font-family: monospace;
+    font-size: 1.25em;
+    overflow: hidden;
+    word-wrap: break-word;
     color: #E09690;
-    border: 0 !important;
-  }
-  .line5 {
-    width: 686px;
-    opacity: 0;
-    -webkit-animation: type3 1s steps(1, end), blink .5s step-end infinite alternate;
-    animation: type3 1s steps(1, end), blink .5s step-end infinite alternate;
-    -webkit-animation-delay: 8s;
-    animation-delay: 8s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    color: #E09690;
-    border: 0 !important;
-    margin-top: -16px;
   }
   .prompt{
     width: 642px;
@@ -296,17 +264,7 @@ span.arrow{
   .result{
     width: 675px;
   }
-  .paragraphs{
-    display: none;
-  }
 }
-/* Laptop */
-/* @media only screen and (min-width: 668px) and (max-width: 1300){
-  .zoom{
-    transform: scale(0.9);
-    transform-origin: 0 0;
-  }
-} */
 /* Hide desktop icons when not enough room */
 @media only screen and (max-width: 947px){
   .icon{
@@ -361,6 +319,5 @@ span.arrow{
     overflow: hidden;
     word-wrap: break-word;
     color: #E09690;
-    border: 0 !important;
   }
 }

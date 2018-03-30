@@ -15,8 +15,8 @@ const data = [
 const directories = [
 	['/jordanwood/portfolio','skills qualifications about projects contact', 'skills--0<br>qualifications--1<br>about--2<br>projects--3<br>contact--4'],
 	['/jordanwood/portfolio/skills', 'html css javascript jquery php'],
-	['/jordanwood/portfolio/qualifications', 'degree diploma', 'degree--2.1 <br> diploma--distinction*'],
-	['/jordanwood/portfolio/about', '24 developer wales'],
+	['/jordanwood/portfolio/qualifications', 'degree diploma', 'degree--2.1<br>diploma--distinction*'],
+	['/jordanwood/portfolio/about', '24 developer wales', '24--years old <br> developer--web <br> wales--uk'],
 	['/jordanwood/portfolio/projects', 'repo', 'repo--github.com/xjord?tab=repositories'],
 	['/jordanwood/portfolio/projects/repo', 'github.com/xjord?tab=repositories'],
 	['/jordanwood/portfolio/contact', 'email linkedin', 'email--jordanwood1993@yahoo.co.uk <br> linkedin--linkedin.com/in/jordanwood1993'],
@@ -31,7 +31,7 @@ let pwd = '/jordanwood/portfolio';
 // Terminal prompt delay
 const firstPrompt = $('#first-prompt');
 
-const paragraphs = $('.paragraphs')
+const paragraphs = $('.paragraphs');
 
 $(firstPrompt).hide(); // Hide first prompt
 $(paragraphs).hide();
@@ -40,9 +40,10 @@ $(paragraphs).hide();
 // Check window size to detemine delay
 if ($(window).width() > 667) {
 	setTimeout(function () {
-		$(firstPrompt).show(); // Show after time delay
+		$(firstPrompt).show();
+		$(paragraphs).show();
 		$('input.prompt').focus(); // Focus on input box
-	}, 9500); // 9.5 seconds
+	}, 2300); // 2.3 seconds
 }
 else {
 	$('.folder').hide();
