@@ -85,78 +85,78 @@ function appendResult(result){
 function checkPrompt(e){
 
 		if(e.keyCode === 13){
-			var inputValue = $(e.target).val().toLowerCase().trim();
+			let inputValue = $(e.target).val().toLowerCase().trim();
 
-		if(inputValue === "0"){
-			pwd = "/jordanwood/portfolio/skills";
+		if(inputValue === '0'){
+			pwd = '/jordanwood/portfolio/skills';
 			appendResult(data[0]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "1"){
-			pwd = "/jordanwood/portfolio/qualifications";
+		else if(inputValue === '1'){
+			pwd = '/jordanwood/portfolio/qualifications';
 			appendResult(data[1]);
 			addArray(inputValue);
 		}
-		else if(inputValue ==="2"){
-			pwd = "/jordanwood/portfolio/about";
+		else if(inputValue === '2'){
+			pwd = '/jordanwood/portfolio/about';
 			appendResult(data[2]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "3"){
-			pwd = "/jordanwood/portfolio/projects";
+		else if(inputValue === '3'){
+			pwd = '/jordanwood/portfolio/projects';
 			appendResult(data[3]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "4"){
-			pwd = "/jordanwood/portfolio/contact";
+		else if(inputValue === '4'){
+			pwd = '/jordanwood/portfolio/contact';
 			appendResult(data[4]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "--help"){
+		else if(inputValue === '--help' || inputValue === '—help'){
 		  appendResult(data[5]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "cd email"){
-			pwd = '/jordanwood/portfolio/email';
-			open("mailto:jordanwood1993@yahoo.co.uk");
+		else if(inputValue === 'cd email'){
+			pwd = '/jordanwood/portfolio/contact/email';
+			open('mailto:jordanwood1993@yahoo.co.uk');
 			appendResult(data[6]);
 			addArray(inputValue);
-			pwd = "/jordanwood/portfolio/email";
+			pwd = '/jordanwood/portfolio/email';
 		}
-		else if(inputValue === "cd linkedin"){
-			pwd = '/jordanwood/portfolio/linkedin';
-			window.open("https://www.linkedin.com/in/jordanwood1993");
+		else if(inputValue === 'cd linkedin'){
+			pwd = '/jordanwood/portfolio/contact/linkedin';
+			window.open('https://www.linkedin.com/in/jordanwood1993');
 			appendResult(data[7]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "cd projects"){
+		else if(inputValue === 'cd projects'){
 			pwd = '/jordanwood/portfolio/projects';
-			window.open("https://github.com/xjord?tab=repositories");
+			window.open('https://github.com/xjord?tab=repositories');
 			appendResult(data[8]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "cd portfolio"){
+		else if(inputValue === 'cd portfolio'){
 			pwd = '/jordanwood/portfolio'
 			appendResult(data[9]);
 			addArray(inputValue);
 		}
-		else if(inputValue === "clear()"){
+		else if(inputValue === 'clear()'){
 			clear();
 			addArray(inputValue);
 		}
-		else if(inputValue === "pwd"){
+		else if(inputValue === 'pwd'){
 			appendResult('$ ' + pwd);
 			addArray(inputValue);
 		}
-		else if(inputValue === "cd .."){
-			if(pwd !== "/jordanwood/portfolio" && pwd !== "/jordanwood"){
-				pwd = "/jordanwood/portfolio"
+		else if(inputValue === 'cd ..'){
+			if(pwd !== '/jordanwood/portfolio' && pwd !== '/jordanwood'){
+				pwd = '/jordanwood/portfolio'
 			} else {
-				pwd = "/jordanwood"
+				pwd = '/jordanwood'
 			}
 			addArray(inputValue);
 		}
-		else if(inputValue === "ls"){
+		else if(inputValue === 'ls'){
 				// Loop to check pwd against directories in array
 				for(k = 0; k < directories.length; k++){
 					// If directory is array return related data
@@ -166,7 +166,7 @@ function checkPrompt(e){
 				}
 				addArray(inputValue);
 		}
-		else if(inputValue ==="ls -l"){
+		else if(inputValue ==='ls -l'){
 			for(k = 0; k < directories.length; k++){
 				if(directories[k][0] === pwd){
 					// Return -l data (Third value in array)
@@ -187,7 +187,7 @@ function checkPrompt(e){
 	}
 
 // Listen for keydown events on elements with the class prompt within css-typing container
-$(".css-typing").on("keydown", ".prompt", checkPrompt);
+$('.css-typing').on('keydown', '.prompt', checkPrompt);
 
 // Cycle through previous commands
 function prevComands(e){
@@ -210,4 +210,70 @@ let command
 	}
 }
 
-$(".css-typing").on("keydown", ".prompt", prevComands);
+$('.css-typing').on('keydown', '.prompt', prevComands);
+
+// Single click folders
+function singleClick(type) {
+	if(type === 'linkedin'){
+	  	$('.linkedin .folder-name').addClass('one-click-name');
+			$('.linkedin .folder').addClass('one-click-folder');
+	} else if(type === 'projects'){
+			$('.projects .folder-name').addClass('one-click-name');
+			$('.projects .folder').addClass('one-click-folder');
+	}
+}
+
+// Double click folders
+function doubleClick(type) {
+	if(type === 'linkedin'){
+		window.open('https://www.linkedin.com/in/jordanwood1993/');
+		$('.linkedin .folder-name').removeClass('one-click-name');
+		$('.linkedin .folder').removeClass('one-click-folder');
+	} else if(type === 'projects'){
+		window.open('https://github.com/xjord?tab=repositories');
+		$('.projects .folder-name').removeClass('one-click-name');
+		$('.projects .folder').removeClass('one-click-folder');
+	}
+}
+
+$('body').on('click', function(e){
+	// If folder is clicked off remove highlight effect classes
+	if(!$(e.target).parent().hasClass('icon linkedin')){
+		$('.linkedin .folder-name').removeClass('one-click-name');
+		$('.linkedin .folder').removeClass('one-click-folder');
+ }
+  if(!$(e.target).parent().hasClass('icon projects')){
+	 $('.projects .folder-name').removeClass('one-click-name');
+	 $('.projects .folder').removeClass('one-click-folder');
+ }
+})
+
+let timer = 0;
+let delay = 200;
+let prevent = false;
+
+$('.icon').on('click', function(e) {
+
+    timer = setTimeout(function() {
+       if (!prevent) {
+				 if($(e.currentTarget).hasClass('linkedin')){
+			 			singleClick('linkedin');
+			 	}
+				else if($(e.currentTarget).hasClass('projects')){
+			 			singleClick('projects');
+			 	}
+       }
+       prevent = false;
+    }, delay);
+  })
+  .on('dblclick', function(e) {
+		clearTimeout(timer);
+    prevent = true;
+
+		if($(e.currentTarget).hasClass('linkedin')){
+			doubleClick('linkedin')
+		}
+		else if($(e.currentTarget).hasClass('projects')){
+				doubleClick('projects');
+		}
+  });

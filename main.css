@@ -211,7 +211,7 @@ span.arrow{
   .icon{
     position: absolute;
     right: 0;
-    margin: 0px 35px 10px 10px;
+    margin: -50px 35px 10px 10px;
     text-decoration: none;
   }
   .folder{
@@ -225,12 +225,24 @@ span.arrow{
     font-family: arial;
     font-weight: bold;
     font-size: 13px;
+    margin-top: 4px;
   }
-  .linkedin{
-    padding-top: 115px;
+  .one-click-name{
+    box-sizing: border-box;
+    background-color: #007aff;
+    padding: 1px;
+    border-radius: 2px;
+  }
+  .one-click-folder{
+    box-sizing: border-box;
+    background-color: rgba(101, 101, 101, 0.6);
+    border: 2px solid  rgba(101, 101, 101);
+  }
+  .projects{
+    margin-top: 60px;
   }
   .terminal{
-    	margin-top: 2%;
+    margin-top: 2%;
   }
   .fakeScreen{
     width: 728px;
