@@ -28,18 +28,20 @@ const directories = [
 // Present working directory
 let pwd = '/jordanwood/portfolio';
 
-// Terminal prompt delay
 const firstPrompt = $('#first-prompt');
-
 const paragraphs = $('.paragraphs');
+const icons = $('.desktop-icons');
 
 $(firstPrompt).hide(); // Hide first prompt
 $(paragraphs).hide();
+$(icons).hide();
 
 
 // Check window size to detemine delay
 if ($(window).width() > 667) {
-	setTimeout(function () {
+	$(icons).show();
+
+	setTimeout(() => {
 		$(firstPrompt).show();
 		$(paragraphs).show();
 		$('input.prompt').focus(); // Focus on input box
@@ -47,7 +49,7 @@ if ($(window).width() > 667) {
 }
 else {
 	$('.folder').hide();
-	setTimeout(function () {
+	setTimeout(() => {
 	 $(firstPrompt).show();
 	 $(paragraphs).show();
 	 $('input.prompt').focus();
@@ -254,7 +256,7 @@ let prevent = false;
 
 $('.icon').on('click', function(e) {
 
-    timer = setTimeout(function() {
+    timer = setTimeout(() => {
        if (!prevent) {
 				 if($(e.currentTarget).hasClass('linkedin')){
 			 			singleClick('linkedin');
