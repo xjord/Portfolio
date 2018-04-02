@@ -16,3 +16,4 @@ Working commands include:
 - 2 	(About)
 - 3 	(Recent)
 - 4 	(Contact)
+- ↑↓    
